@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+<head>
+  <title>CaosNews | Inicio</title> 
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Matías Cavieres">
+  <meta name="generator" content="Mati">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/blog/">
+
+    <!-- Bootstrap  CSS -->
+    <link href="css/index.css" rel="stylesheet">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    <!-- Estilos -->
+    <link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900&amp;display=swap" rel="stylesheet">
+    <!-- Estilos -->
+    <link href="blog.css" rel="stylesheet">
+</head>
+<body>
+  <img src="{% static 'img/logoP.jpg'%}" width="80" height="80" class="barrai">
+  <li><a href="{% url 'Inicio'%}">Inicio</a></li>
+  <li><a href="{% url 'Catalogo'%}">Catálogo</a></li>
+  <li><a href="{% url 'Mostrar'%}">Mostrar Pedido</a></li>
+    
+  <body background="{% static 'img/fondonoticias.jpg'%}">
+  </ul>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Rut</th>
+                <th scope="col">Contraseña</th>
+                <th scope="col">Fecha de Nacimiento</th>
+                <th scope="col">Direccion</th>
+                <th scope="col">Género</th>
+                <th scope="col">Modificar</th>
+                <th scope="col">Eliminar</th>
+            </tr>
+        </thead>
+        <tbody>
+          {%for u in persona%}
+            <tr>
+
+
+                    <td> {{u.nombre}}</td>
+                    <td> {{u.rut}}</td>
+                    <td> {{u.contrasena}}</td>
+                    <td> {{u.fn}}</td>
+                    <td> {{u.direccion}}</td>
+                    <td> {{u.genero}}</td>
+                    <td><a href="{% url 'Modificar' u.direccion%}" class="btn btn-primary">Modificar</a></td>
+                    <td><a href="{% url 'Eliminar'  u.direccion%}" class="btn btn-primary">Eliminar</a></td>
+
+
+            </tr>
+          {%endfor%}
+
+
+        </tbody>
+
+    </table>
+    <a href="{% url 'Ingresar'%}" class="btn btn-primary">Quiere Ingresar Otro</a>
+    
+    <footer class="py-5">
+      <div class="container" id="fondo">
+      <p class="text-light">INICIA SESIÓN Y DISFRUTA DE TODO NUESTRO CONTENIDO.</p>
+      <a class="navbar-brand" href="https://www.youtube.com/channel/UC8d7y6XYJl7JyR_V19eUFSA" target="_blank">
+        <img src="img/EnlaceYoutube.png" width="100" height="65" alt="">
+      </a>
+      <a class="navbar-brand" href="https://www.instagram.com/pelisCriticas12/" target="_blank">
+        <img src="img/EnlaceInstagram.png" width="91" height="90" alt="">
+      </a>
+      <a class="navbar-brand" href="https://twitter.com/PelisCriticas" target="_blank">
+        <img src="img/EnlaceTwitter.png" width="91" height="90" alt="">
+      </a>
+      <p class="text-light"><small>Mati @Copyrigth Derechos reservados</small></p>
+    </footer>
+</body>
+</html>
